@@ -1,0 +1,20 @@
+{
+  "name": "UnzipFiles",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "author": "babybus",
+  "license": "ISC",
+  "devDependencies": {
+    "electron-packager": "^8.1.0",
+    "electron-prebuilt": "^1.4.3"
+  },
+  "scripts": {
+    "start": "electron .",
+    "package": "electron-packager ./ UnzipFiles --platform=darwin --overwrite --arch=x64 --out ../OutApp --version 1.3.8"
+  },
+  "dependencies": {
+    "unzip": "^0.1.11"
+  }
+}
+
