@@ -68,7 +68,7 @@ function onReady() {
     // 加载入口页面
     mainWindow.loadURL('file://' + __dirname + '/client.html')
     // 打开调试模式
-    // mainWindow.webContents.openDevTools()
+    mainWindow.webContents.openDevTools()
 
     // 绑定窗口事件
     if (true) {

@@ -8,32 +8,120 @@
     <link rel="stylesheet" type="text/css" href="res/css/bootstrap.css">
     <script type="text/javascript" src="api.js"></script>
     <script type="text/javascript" src="client.js"></script>
+<!--     <script type="text/javascript">
+       function add_tr(obj) {
+            var cell = obj.parentNode.parentNode.parentNode;
+            // tr.after(tr.clone());
+            cell.innerHTML="<tr><td colspan=\"2\"><textarea  style=\"resize:none; width: 60%;\" rows=\"1\" cols=\"30\"/>再瞎bb弄死你</textarea><button onclick=\'add_tr(this)\'>增加</button><button onclick=\'del_tr(this)\'>删除</button></td></tr>";
+
+        }
+        function del_tr(obj) {
+            var tr = obj.parentNode.parentNode;
+            tr.parentNode.removeChild(tr);
+        }
+    </script> -->
+    <style type="text/css">
+        table.imagetable {
+            font-family: verdana,arial,sans-serif;
+            font-size:11px;
+            color:#333333;
+            border-width: 1px;
+            border-color: #999999;
+            border-collapse: collapse;
+        }
+        table.imagetable th {
+            background:#b5cfd2 url('cell-blue.jpg');
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #999999;
+        }
+        table.imagetable td {
+            background:#dcddc0 url('cell-grey.jpg');
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #999999;
+        }
+    </style>
 </head>
 <body>
-    <div class="section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <form role="form">
-              <div class="form-group">
-                <label class="control-label" for="exampleInputEmail1">解压路径:</label>
-                <input class="form-control" id="unzip-path" placeholder="输入解压路径"
-                type="text">
-              </div>
-            </form>
-          </div>
-          <p style="text-align:center"> <span id ="completed">0</span>/<span id ="total">0</span> </p>
-        </div>
-      </div>
-    </div>
-    <div class="section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 text-right">
-            <a class="btn btn-primary" id="btn-unzip" onclick="onButtonClick_btnUnzip(this)">开始解压</a>
-          </div>
-        </div>
-      </div>
+    <div class="nav">
+        <!-- <div class="navfirst"> -->
+            <table class="imagetable">
+            <tr><th style="width: 300;" colspan="2">ToDo</th></tr>
+                <tr>
+                    <td style="text-align: right;">
+                        <label>通过产品个数:</label>
+                    </td>
+                    <td>
+                        <input type="text" style="ime-mode:disabled; color: green;" onafterpaste="this.value=this.value.replace(/\D/g,'')" onkeyup="updateProgress(this)" value="0" id="adopt_product_text"/>   
+                    </td>
+                </tr>
+               <tr>
+                    <td  style="text-align: right;">
+                       <label>剩余产品个数:</label>
+                    </td>
+                    <td>
+                        <input type="text" style="ime-mode:disabled; color: red" onafterpaste="this.value=this.value.replace(/\D/g,'')" onkeyup="updateProgress(this)" value="0" id="remaining_product_text"/> 
+                    </td>
+
+                </tr>
+               <tr>
+                    <td  style="text-align: right;">
+                        <label for="all_product_span">总共产品个数:</label>
+                    </td>
+                    <td>
+                        <span id="all_product_span">0</span>
+                       <!--  <input type="text" style="ime-mode:disabled;" onafterpaste="this.value=this.value.replace(/\D/g,'')" onkeyup="updateProgress(this)" value="0" id="all_product_text"/>  -->
+                    </td>
+
+                </tr>
+                <tr>
+                    <td  style="text-align: right;">
+                        <label for="percentage_span">打包进度:</label>
+                    </td>
+                    <td>
+                        <span id="percentage_span">0</span>%
+                          <!-- <label for="percentage_label">0</label>% -->
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label>目前碰到问题:</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <textarea  id="problem_textarea" style="resize:none; width: 100%;" rows="5" cols="30"/>再瞎bb弄死你</textarea>
+                    </td>
+                </tr>
+              <!--    <tr>
+                    <td colspan="2">
+                        <table border="0", cellpadding="0"; cellspacing="0" id="problem_table">
+                            <tr>
+                                <td colspan="2">
+                                    <textarea  style="resize:none; width: 60%;" rows="1" cols="30"/>再瞎bb弄死你</textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <textarea  style="resize:none; width: 60%;" rows="1" cols="30"/>再瞎bb弄死你</textarea>
+                                    <button onclick='add_tr(this)'>增加</button><button onclick='del_tr(this)'>删除</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr> -->
+                <tr >
+                    <td colspan="2" style="text-align: center;"><button onclick="onButtonClick_generate()">生成</button>&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp<button onclick="onButtonClick_copy()">复制</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><textarea  id="copy_textarea" style="resize:none; width: 300px;" rows="10" cols="30"/>再瞎bb弄死你</textarea></td>
+                </tr>
+            </table>          
+        <!-- </div> -->
     </div>
 </body>
 </html>
