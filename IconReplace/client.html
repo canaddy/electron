@@ -1,0 +1,59 @@
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="res/js/jquery.min.js"></script>
+    <script type="text/javascript" src="res/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="res/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="res/css/bootstrap.css">
+    <script type="text/javascript" src="api.js"></script>
+    <script type="text/javascript" src="client.js"></script>
+    
+  </head><body style="overflow:hidden">
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <form class="form-horizontal" role="form">
+              <div class="form-group">
+                <div class="col-sm-2">
+                  <label for="project-path" class="control-label">路 径:</label>
+                </div>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="project-path" placeholder="输入框">
+                </div>
+                <div class="col-sm-2">
+                  <a class="btn btn-primary" id="choose-projects">选  择</a>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-2">
+                  <label for="icon-path" class="control-label">路 径:</label>
+                </div>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="icon-path" placeholder="输入框">
+                </div>
+                <div class="col-sm-2">
+                  <a class="btn btn-primary" id="choose-icons">选  择</a>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-2">
+            <label for="replaced-count" class="control-label">进 度:</label>
+          </div>
+          <div class="col-sm-8">
+            <span id="replaced-count">0</span>
+            <span>/</span>
+            <span id="all-count">0</span>
+          </div>
+          <div class="col-sm-2">
+            <a class="btn btn-primary" onclick="onButtonClick_btnExcute(this)">执  行</a>
+          </div>
+        </div>
+      </div>
+    </div>
+        
+
+</body></html>

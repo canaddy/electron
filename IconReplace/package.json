@@ -1,0 +1,17 @@
+{
+  "name": "IconReplace",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",  
+  "author": "babybus",
+  "license": "ISC",
+  "devDependencies": {
+    "electron-packager": "^8.1.0",
+    "electron-prebuilt": "^1.3.8"
+  },
+
+  "scripts": {
+    "start": "electron .",
+    "packager": "electron-packager ./ IconReplace --platform=darwin --arch=x64 --out ../OutApp --version 1.3.8 --icon=./2.ico --ignore=dev-settings --ignore=node_modules/electron-* --ignore=node_modules/.bin --ignore=node_modules/electron-packager --ignore=node_modules/electron-prebuilt --prune"
+  }
+}
