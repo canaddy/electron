@@ -58,9 +58,9 @@ function onReady() {
     // 创建应用程序窗口
     mainWindow = new BrowserWindow({
         // 设置宽度
-        width:      400,
+        width:      350,
         // 设置高度
-        height:     500,
+        height:     540,
         // 设置是否改变大小
         // resizable:   false,        
     })
@@ -68,7 +68,7 @@ function onReady() {
     // 加载入口页面
     mainWindow.loadURL('file://' + __dirname + '/client.html')
     // 打开调试模式
-    mainWindow.webContents.openDevTools()
+    // mainWindow.webContents.openDevTools()
 
     // 绑定窗口事件
     if (true) {

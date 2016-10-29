@@ -2,11 +2,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="text/javascript" src="res/js/jquery.min.js"></script>
-    <script type="text/javascript" src="res/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="res/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="res/css/bootstrap.css">
-    <script type="text/javascript" src="api.js"></script>
+    <!-- <script type="text/javascript" src="res/js/jquery.min.js"></script> -->
+    <!-- <script type="text/javascript" src="res/js/bootstrap.min.js"></script> -->
+    <!-- <link rel="stylesheet" type="text/css" href="res/css/font-awesome.min.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="res/css/bootstrap.css"> -->
+    <!-- <script type="text/javascript" src="api.js"></script> -->
     <script type="text/javascript" src="client.js"></script>
 <!--     <script type="text/javascript">
        function add_tr(obj) {
@@ -30,14 +30,14 @@
             border-collapse: collapse;
         }
         table.imagetable th {
-            background:#b5cfd2 url('cell-blue.jpg');
+            background:#b5cfd2;
             border-width: 1px;
             padding: 8px;
             border-style: solid;
             border-color: #999999;
         }
         table.imagetable td {
-            background:#dcddc0 url('cell-grey.jpg');
+            background:#dcddc0;
             border-width: 1px;
             padding: 8px;
             border-style: solid;
@@ -49,7 +49,7 @@
     <div class="nav">
         <!-- <div class="navfirst"> -->
             <table class="imagetable">
-            <tr><th style="width: 300;" colspan="2">ToDo</th></tr>
+            <tr><th style="width: 100%; height: 100%" colspan="2">ToDo</th></tr>
                 <tr>
                     <td style="text-align: right;">
                         <label>通过产品个数:</label>
@@ -93,7 +93,7 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <textarea  id="problem_textarea" style="resize:none; width: 100%;" rows="5" cols="30"/>再瞎bb弄死你</textarea>
+                        <textarea  id="problem_textarea" style="resize:none; width: 100%;" rows="5" cols="30"/></textarea>
                     </td>
                 </tr>
               <!--    <tr>
@@ -113,15 +113,32 @@
                         </table>
                     </td>
                 </tr> -->
-                <tr >
-                    <td colspan="2" style="text-align: center;"><button onclick="onButtonClick_generate()">生成</button>&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp<button onclick="onButtonClick_copy()">复制</button>
-                    </td>
-                </tr>
                 <tr>
-                    <td colspan="2"><textarea  id="copy_textarea" style="resize:none; width: 300px;" rows="10" cols="30"/>再瞎bb弄死你</textarea></td>
+                    <td colspan="2"><textarea id="copy_textarea" style="resize:none; width: 300px;" rows="10" cols="30"/></textarea></td>
+                </tr>
+                <tr >
+                    <td colspan="2" style="text-align: center;"><button onclick="onButtonClick_generate()">生成</button>&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp<button class="copy_btn" data-clipboard-action="copy" data-clipboard-target="#copy_textarea">复制</button>
+                    </td>
                 </tr>
             </table>          
         <!-- </div> -->
     </div>
+    <!-- 添加复制功能 -->
+    <script type="text/javascript" src="./res/js/clipboard.min.js"></script>
+    <script>
+        var clipboard = new Clipboard('.copy_btn');
+        clipboard.on('success', function(e) {
+            console.info('Action:', e.action);
+            console.info('Text:', e.text);
+            console.info('Trigger:', e.trigger);
+            alert("复制成功");
+            e.clearSelection();
+            });
+         
+        clipboard.on('error', function(e) {
+            console.error('Action:', e.action);
+            console.error('Trigger:', e.trigger);
+            });
+     </script>
 </body>
 </html>

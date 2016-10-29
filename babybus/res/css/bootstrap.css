@@ -21,6 +21,11 @@ html {
 body {
   margin: 0;
 }
+.bb {
+  width: 120;
+  margin-left: 60;
+  margin-top: 30;
+}
 article,
 aside,
 details,

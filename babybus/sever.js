@@ -1,9 +1,9 @@
 // +----------------------------------------------------------------------
 // | Code.Cap [ All samples in it! ]
 // +----------------------------------------------------------------------
-// | Copyright (c) 2015  All rights reserved.
+// | Copyright (c) 2015 http://ac.asia All rights reserved.
 // +----------------------------------------------------------------------
-// | Author: Lan <546945340@qq.com> <http://do.org.cn>
+// | Author: AC <63371896@qq.com> <http://do.org.cn>
 // +----------------------------------------------------------------------
 //-----------------------
 // 事件定义 - 生命周期
@@ -11,7 +11,7 @@
 /**
  * 绑定事件[应用程序启动]
  * @return 
- * @author Lan <546945340@qq.com>
+ * @author AC <63371896@qq.com>
  */
 function onStartup() {
 
@@ -20,7 +20,7 @@ function onStartup() {
 /**
  * 绑定事件[应用程序关闭]
  * @return 
- * @author Lan <546945340@qq.com>
+ * @author AC <63371896@qq.com>
  */
 function onShutdown() {
 
@@ -41,10 +41,10 @@ function onShutdown() {
 /**
  * 绑定事件[按钮-点击-btnClickMe]
  * @return 
- * @author Lan <546945340@qq.com>
+ * @author AC <63371896@qq.com>
  */
-function onButtonClick_btnUnzip(sender, e) {
-    console.log('Triggle onButtonClick_btnUnzip - by server!')
+function onButtonClick_btnClickMe(sender, e) {
+    console.log('Triggle onButtonClick_btnClickMe - by server!')
     console.log('client e: ' + e)
 }
 
@@ -63,5 +63,5 @@ function onButtonClick_btnUnzip(sender, e) {
 exports.functions = {
 	onStartup: onStartup,
 	onShutdown: onShutdown,
-	onButtonClick_btnUnzip: onButtonClick_btnUnzip,
+	onButtonClick_btnClickMe: onButtonClick_btnClickMe,
 }

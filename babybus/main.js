@@ -1,9 +1,9 @@
 // +----------------------------------------------------------------------
 // | Code.Cap [ All samples in it! ]
 // +----------------------------------------------------------------------
-// | Copyright (c) 2015 All rights reserved.
+// | Copyright (c) 2015 http://ac.asia All rights reserved.
 // +----------------------------------------------------------------------
-// | Author: Lan <546945340@qq.com> <http://do.org.cn>
+// | Author: AC <63371896@qq.com> <http://do.org.cn>
 // +----------------------------------------------------------------------
 //-----------------------
 // 载入模块
@@ -51,7 +51,7 @@ var mainWindow = null
 /**
  * 绑定事件[应用程序载入]
  * @return 
- * @author Lan <546945340@qq.com>
+ * @author AC <63371896@qq.com>
  */
 function onReady() {
 	// 创建应用程序窗口
@@ -59,7 +59,7 @@ function onReady() {
     	// 设置宽度
         width: 		400,
     	// 设置高度
-        height: 	500,
+        height: 	600,
         // 设置是否改变大小
         // resizable: 	false,        
     })
@@ -67,7 +67,7 @@ function onReady() {
     // 加载入口页面
     mainWindow.loadURL('file://' + __dirname + '/client.html')
     // 打开调试模式
-    // mainWindow.webContents.openDevTools()
+    mainWindow.webContents.openDevTools()
 
     // 绑定窗口事件
     if (true) {
@@ -86,7 +86,7 @@ function onReady() {
 /**
  * 绑定事件[应用程序关闭]
  * @return 
- * @author Lan <546945340@qq.com>
+ * @author AC <63371896@qq.com>
  */
 function onTerminate() {
     // 执行全局事件
@@ -103,7 +103,7 @@ function onTerminate() {
 /**
  * 绑定事件[应用程序窗口 - 关闭]
  * @return 
- * @author Lan <546945340@qq.com>
+ * @author AC <63371896@qq.com>
  */
 function onMainWindowClosed() {
 	mainWindow = null
@@ -112,7 +112,7 @@ function onMainWindowClosed() {
 /**
  * 绑定事件[应用程序窗口 - 其他]
  * @return 
- * @author Lan <546945340@qq.com>
+ * @author AC <63371896@qq.com>
  */
 function onMainWindowOtherwise() {
 	console.log('调用事件: 应用程序窗口 - 其他')
@@ -137,5 +137,5 @@ if (true) {
 	app.on('window-all-closed', onTerminate)
 
     // [绑定事件]
-    ipcMain.on('onButtonClick_btnUnzip', server.onButtonClick_btnUnzip)
+    ipcMain.on('onButtonClick_btnClickMe', server.onButtonClick_btnClickMe)
 }
