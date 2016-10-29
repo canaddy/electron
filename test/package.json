@@ -1,11 +1,55 @@
 {
-  "name": "fds",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "feedback",
+  "version": "0.0.1",
+  "homepage": "https://github.com/canaddy/electron",
+  "description": "全线升级每日反馈",
+  "main": "./app/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "electron ./app",
+    "clean": "rm -rf ./dist",
+    "clean:osx": "rm -rf ./dist/osx",
+    "clean:win": "rm -rf ./dist/win",
+    
+    "build": "npm run clean && npm run build:osx && npm run build:win",
+    "build:osx": "npm run clean:osx && electron-packager ./app feedback --out=./dist/osx --platform=darwin --arch=x64 --version=1.3.8",
+    "build:win": "npm run clean:win && electron-packager ./app feedback --out=./dist/win --platform=win32 --arch=x64 --version=1.3.8",
+    
+    "pack": "npm run pack:osx && npm run pack:win",
+    "pack:osx": "npm run build:osx && build --dir",
+    "pack:win": "npm run build:win && electron-builder ./dist/win/feedback-win32 --platform=win --out=./dist/win"
   },
-  "author": "",
-  "license": "ISC"
+  "keywords": [
+    "feedback"
+  ],
+  "author": "canaddy.",
+  "license": "ISC",
+  "devDependencies": {
+    "electron-builder": "^7.15.2",
+    "electron-packager": "^8.1.0",
+    "electron-prebuilt": "^1.3.8"
+  },
+  "build": {
+    "osx": {
+      "title": "feedback",
+      "icon": "assets/osx/icon.icns",
+      "icon-size": 80,
+      "contents": [
+        {
+          "x": 448,
+          "y": 344,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 192,
+          "y": 344,
+          "type": "file"
+        }
+      ]
+    },
+    "win": {
+      "title": "feedback",
+      "icon": "assets/win/icon.ico"
+    }
+  }
 }
